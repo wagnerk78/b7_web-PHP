@@ -15,7 +15,7 @@ class Usuario {
         return $this->nome;
     }
     public function setNome($n) {
-       $this->nome = ucwords(trim($n));
+       $this->nome = ucwords(strtolower(trim($n)));
     }
     public function getEmail() {
         return $this->email;
@@ -30,6 +30,7 @@ interface UsuarioDAO {
     public function add(Usuario $u);
     public function findAll();
     public function findById($id);
+    public function findByEmail($email);
     public function update(Usuario $u);
     public function delete($id);
 }
